@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Hello! My name is Dustin Redmon. I am a CIT major at California State University Northridge. I am a transfer student from Pasadena City College on my senior year. It has been a long journey and I cannot wait to share everything that I have learned with you. I love technology and love sharing my knowledge with other people that do to!
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[dustin.redmon213@gmail.com](mailto:dustin.redmon213@gmail.com)
