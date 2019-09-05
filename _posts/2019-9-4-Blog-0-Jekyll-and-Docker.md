@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Blog 0: Working with Jekyll and Docker
+title: Blog 0 - Working with Jekyll and Docker
 ---
 
 Last week was the first week of class, and my workload is already slammed! Getting into the right state of mind is always difficult when returning from summer vacation. With that being said, I am really excited to start on my first CIT projects for the semester. This year I am taking Senior Design Project which is gonna be my last CIT class before I graduate! 
