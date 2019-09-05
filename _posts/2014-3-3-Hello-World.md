@@ -1,5 +1,6 @@
 ---
 layout: post
+date:   2019-09-04 22:53:49 -0700
 title: You're up and running!
 ---
 
