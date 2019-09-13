@@ -15,5 +15,5 @@ Next we want to format our USB and create a partition on our windows machine to 
 
 After you have everything prepared, you can now use Etcher to create a Live USB to install your Linux partion. Just open Etcher, select your USB and you iso image for you Linux installation, and Etcher will automtically create the Live USB for you. 
 
-From here you are ready to start your installation. Restart your PC with the Live USB inserted and keep pressing F10 or F12 to launch the boot menu. When prompted select the option to Install Ubuntu. From here everything is straight forward. Follow the directions on-screen to complete your installation. Congratulations! The next time you restart your PC you will be given to launch your Ubuntu or Windows operating system!
+From here you are ready to start your installation. Restart your PC with the Live USB inserted and keep pressing F10 or F12 to launch the boot menu. When prompted select the option to Install Ubuntu. From here everything is straight forward. Follow the directions on-screen to complete your installation. Congratulations! The next time you restart your PC you will be given to launch your Ubuntu or Windows operating system!!
 
