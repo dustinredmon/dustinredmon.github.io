@@ -8,6 +8,7 @@ Playbooks are written in YAML format. YAML stands for Yet Another Markup Languag
 
 Spacing and indentation level is very important when writing YAML. Avoid using tabs over spaces when writing in YAML. Spacing is your friend! Tabs are not always  translated properly, and may cause issues with your code. So it is good practice to avoid using tabs alotgether. All members of a list are lines beginning at the same indentation level starting with a "- " (a dash and a space). In an Ansible playbook, it is common to see tasks ordered using this format to create a list:
 
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/QiPAvwX"><a href="//imgur.com/a/QiPAvwX"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
   #Simple Ansible Playbook1.yml
   
 - 
