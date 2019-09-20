@@ -9,25 +9,26 @@ Playbooks are written in YAML format. YAML stands for Yet Another Markup Languag
 Spacing and indentation level is very important when writing YAML. Avoid using tabs over spaces when writing in YAML. Spacing is your friend! Tabs are not always  translated properly, and may cause issues with your code. So it is good practice to avoid using tabs alotgether. All members of a list are lines beginning at the same indentation level starting with a "- " (a dash and a space). In an Ansible playbook, it is common to see tasks ordered using this format to create a list:
 
   #Simple Ansible Playbook1.yml
-  --- 
-      name: Play1
-      hosts: localhost
-      tasks:
-          - name: Execute command 'date'
-            command: date
+  
+- 
+    name: Play1
+    hosts: localhost
+    tasks:
+      - name: Execute command 'date'
+        command: date
             
-          - name: Execute script on server
-            script: test_script.sh
+      - name: Execute script on server
+        script: test_script.sh
             
-          - name: Install httpd service
-            yum:
-                name: httpd
-                state: present
+      - name: Install httpd service
+        yum:
+            name: httpd
+            state: present
                 
-           - name: Start web server
-             service:
-                 name: httpd
-                 state: started
+       - name: Start web server
+         service:
+             name: httpd
+             state: started
                 
 Notice how the file starts with 3 hyphens. A YAML file always starts with 3 hyphens. If you examine this playbook further, you will see how all the information is presented in a key/value pair. For instance, to specify host information, we entered localhost as the host we would like to use. In this line of code, host is the 'key', and localhost is the 'value'. Together they arrange information in a key/value pair. Notice the values assigned to the 'tasks' key. Since there is more than one task, we must create a list to include every operation we want to perform. Notice how each item on the list starts at the same indentation level, and starts with a "- ". Identation level is very important. If just one item is not properly indented it will be considered a child to the preious item on the list, rather than an actual item on the list.
 
