@@ -16,7 +16,7 @@ I mean seriously, what is that!? That looks like it was written by ancient alien
   
 After familiarizing yourself with the cheat sheet above, let is go through an example of how you can use regular expression and lineinfile to edit a config file. In most cases, I think the example here is applicable in most situations.
 
-  - name: Edit 000-default.conf
+    name: Edit 000-default.conf
     lineinfile:
       path: /etc/apache2/sites-available/000-default.conf
       state: present
