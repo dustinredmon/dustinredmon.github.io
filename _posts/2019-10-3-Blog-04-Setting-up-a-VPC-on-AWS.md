@@ -3,11 +3,11 @@ layout: post
 title: Blog 04 - Setting up a VPC on AWS
 ---
 This week in my Senior Design class, we finally start working on or Senior Project. For this project we need to set up a Virtual Private Cloud. An AWS VPC allows any organization to setup one or more networks inside of AWS. The requirments for this project include the follwoing:
-●	3 public subnets in 3 different availability zones (AZ) with at least 1024 available IP addresses per subnet.
-●	3 private subnets in 3 different availability zones (AZ) with at least 4096 available IP addresses per subnet.
-●	1 route table for the public subnets
-●	1 route table for the private subnets
-●	1 Internet Gateway (IG) attached to the default route of the public subnet routing table
+- 3 public subnets in 3 different availability zones (AZ) with at least 1024 available IP addresses per subnet.
+- 3 private subnets in 3 different availability zones (AZ) with at least 4096 available IP addresses per subnet.
+- 1 route table for the public subnets
+- 1 route table for the private subnets
+- 1 Internet Gateway (IG) attached to the default route of the public subnet routing table
 
 So first we will open the VPC dashboard in AWS. Your AWS account comes with a default VPC installed. You can edit this VPC if you like, or delete it to start fro scratch. For this tutorial, I will be starting from scratch. Click on 'Your VPCs', and select 'Create VPC'. On this first page you can enter all the details of your VPC. Give your VPC a name. Enter an IP range in 'IPv4 CIDR block' such as 172.31.0.0/16. Leave everthing else as default, and click 'create'. Now you can see your VPC in your list of VPCs.
 
