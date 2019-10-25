@@ -26,8 +26,9 @@ You will then be prompted to enter your AWS credentials to be stored on your loc
     AWS Access Key ID [*****************WOLD]:
     AWS Secret Access Key [*****************6qBN]:
     Default Region Name [us-east-1]:
+    Default Output Format [table]:
     
-Information stored here is encrypted. The information presented in the brackets are the current credentials being stored in AWS CLI. These will be replaced when you enter new credentials.
+Information stored here is encrypted. The information presented in the brackets are the current credentials being stored in AWS CLI. These will be replaced when you enter new credentials. Default Output Format is how you want output information to be displayed, there are a number of options you can put here, but I recommend using table if you prefer to have your information organized in a more digestible format. It will organized all of the information in tables.
 
 Now that you have your credentials stored in AWS CLI, you can now run your Terrafrom code without entering your credentials in the files itself. AWS CLI will automatically retrieve your credentials for terraform to access your AWS account:
 
@@ -35,4 +36,4 @@ Now that you have your credentials stored in AWS CLI, you can now run your Terra
       region     = "us-east-1"
     }
     
-Notice that now you no longer need to store your credentails in the provider block as shown in the previous provider block example.
+Notice that now you no longer need to store your credentials in the provider block as shown in the previous provider block example.
