@@ -14,6 +14,7 @@ Here is how to configure Apache servers tp use the X-Forwarded-Proto header:
 1.    Open your Apache configuration file. Possible locations include /etc/httpd/conf/httpd.conf (Apache 2/httpd), /etc/apache2/sites-enabled/ (Apache 2.4), or /etc/apache2/apache2.conf (Apache on Ubuntu).
 
 2.    Add a rewrite rule to the VirtualHost section of your configuration file similar to the following:
+
     <VirtualHost *:80>
     RewriteEngine On
     RewriteCond %{HTTP:X-Forwarded-Proto} =http
