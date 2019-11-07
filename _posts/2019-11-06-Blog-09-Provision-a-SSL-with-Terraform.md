@@ -13,46 +13,47 @@ Normally when creating a certificate through in the console we need to create a 
 
 First, define a resource for the domain ACM certificate and set its validation method to use DNS:
 
-resource "aws_acm_certificate" "default" {
-  domain_name       = "example.com"
-  validation_method = "DNS"
-}
+    resource "aws_acm_certificate" "default" {
+      domain_name       = "example.com"
+      validation_method = "DNS"
+    }
+    
 This will create the actual certificate, but it will not be ready to use until we validate it first. In order to validate the certificate, we use the outputs of aws_acm_certificate to create a Route 53 DNS record to confirm domain ownership:
 
-data "aws_route53_zone" "external" {
-  name = "example.com"
-}
-resource "aws_route53_record" "validation" {
-  name    = "${aws_acm_certificate.default.domain_validation_options.0.resource_record_name}"
-  type    = "${aws_acm_certificate.default.domain_validation_options.0.resource_record_type}"
-  zone_id = "${data.aws_route53_zone.external.zone_id}"
-  records = ["${aws_acm_certificate.default.domain_validation_options.0.resource_record_value}"]
-  ttl     = "60"
-}
+    data "aws_route53_zone" "external" {
+      name = "example.com"
+    }
+    resource "aws_route53_record" "validation" {
+      name    = "${aws_acm_certificate.default.domain_validation_options.0.resource_record_name}"
+      type    = "${aws_acm_certificate.default.domain_validation_options.0.resource_record_type}"
+      zone_id = "${data.aws_route53_zone.external.zone_id}"
+      records = ["${aws_acm_certificate.default.domain_validation_options.0.resource_record_value}"]
+      ttl     = "60"
+    }
 
 Here we are using the data from a pre-existing zone, but you could easily create a new zone with AWS_route53_zone resource, but you would ne re-register your NS records with your Domain provider.
 
 After that, use the aws_acm_certificate_validation resource to wait for the newly created certificate to become valid:
 
-resource "aws_acm_certificate_validation" "default" {
-  certificate_arn = "${aws_acm_certificate.default.arn}"
-  validation_record_fqdns = [
-    "${aws_route53_record.validation.fqdn}",
-  ]
-}
+    resource "aws_acm_certificate_validation" "default" {
+      certificate_arn = "${aws_acm_certificate.default.arn}"
+      validation_record_fqdns = [
+        "${aws_route53_record.validation.fqdn}",
+      ]
+    }
 
 Once that is completed, you should have been issued a new verified SSL certificate that has been validated. You can reference the certificate using its ARN:
 
-acm_certificate_arn      = "${aws_acm_certificate_validation.default.certificate_arn}"
+  acm_certificate_arn      = "${aws_acm_certificate_validation.default.certificate_arn}"
 
 Here is an example of how I use my certificate on a listener for my ELB:
 
-listener {
-    instance_port      = 80
-    instance_protocol  = "http"
-    lb_port            = 443
-    lb_protocol        = "https"
-    ssl_certificate_id = "${aws_acm_certificate_validation.default.certificate_arn}"
-  }
+    listener {
+        instance_port      = 80
+        instance_protocol  = "http"
+        lb_port            = 443
+        lb_protocol        = "https"
+        ssl_certificate_id = "${aws_acm_certificate_validation.default.certificate_arn}"
+      }
 
 And that is everything you need to know about creating an SSL cetificate with Terraform.
