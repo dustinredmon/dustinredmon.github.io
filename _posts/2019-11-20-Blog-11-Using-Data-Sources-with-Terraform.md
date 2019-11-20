@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Blog 05 - Setup domain with AWS Route53
+title: Blog 11 - Using Data Sources with Terraform
 ---
 
 This week we are waiting on details and requirements for the next project, so I havent really worked on anything new. So I guess I will take this opportunity to go over something that I learned previously that I thought was really useful. In the last project I realized that it was easier to use an existing hosted zone for NS and SOA records. This avoids having to register the NS records with our domain provider everytime we run our Terraform code to create our infrastructure. To do that however, Terraform needs to be able to pull data from that existing zone (such as a Zone ID). This is where data sources come in to play. 
